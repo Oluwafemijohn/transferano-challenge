@@ -16,7 +16,7 @@ function LoginScreen(props: any) {
   const [errors, setErrors] = useState({});
 
   const handleSubmit = () => {
-    console.log(email, password);
+
     axios
       .post(`https://reqres.in/api/login`, {
         email,
@@ -24,7 +24,7 @@ function LoginScreen(props: any) {
       })
       .then((response) => {
         console.log(response.data.token);
-        // props.navigation.navigate("Home");
+        props.navigation.navigate("Home", response.data.token);
       })
       .catch((err) => {
         console.log(err);
@@ -82,6 +82,11 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     width: "80%",
     alignSelf: "center",
+    height: 40,
+    borderColor: "gray",
+    borderWidth: 1,
+    borderRadius: 5,
+
   },
   button: {
     marginTop: 20,
