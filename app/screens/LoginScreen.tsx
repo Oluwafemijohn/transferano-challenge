@@ -23,7 +23,7 @@ function LoginScreen(props: any) {
         password,
       })
       .then((response) => {
-        console.log(response.data.token);
+
         props.navigation.navigate("Home", response.data.token);
       })
       .catch((err) => {
